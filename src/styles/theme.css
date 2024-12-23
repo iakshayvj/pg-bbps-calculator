@@ -1,11 +1,27 @@
 /* Theme Variables */
 :root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-primary: #6366f1;
+  --accent-secondary: #4f46e5;
+  --border-color: #e5e7eb;
   --tooltip-bg: #ffffff;
   --tooltip-border: #e5e7eb;
   --tooltip-text: #1f2937;
 }
 
 .dark {
+  --bg-primary: #000000;
+  --bg-secondary: #111827;
+  --bg-card: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --accent-primary: #818cf8;
+  --accent-secondary: #6366f1;
+  --border-color: #374151;
   --tooltip-bg: #1f2937;
   --tooltip-border: #374151;
   --tooltip-text: #f3f4f6;

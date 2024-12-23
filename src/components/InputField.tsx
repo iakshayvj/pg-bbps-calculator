@@ -1,5 +1,4 @@
 import React from 'react';
-import { HelpCircle } from 'lucide-react';
 
 interface InputFieldProps {
   label: string;
@@ -7,7 +6,6 @@ interface InputFieldProps {
   onChange: (value: number) => void;
   placeholder?: string;
   suffix?: string;
-  tooltip?: string;
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -16,35 +14,27 @@ export const InputField: React.FC<InputFieldProps> = ({
   onChange,
   placeholder,
   suffix,
-  tooltip,
 }) => {
   return (
     <div className="input-container">
-      <label className="input-label">
-        {label}
-        {tooltip && (
-          <span className="tooltip-icon group relative">
-            <HelpCircle className="w-4 h-4" />
-            <span className="invisible group-hover:visible absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap">
-              {tooltip}
-              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></span>
-            </span>
+      {label && (
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        {(suffix === '₹' || suffix === '%') && (
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none">
+            {suffix}
           </span>
         )}
-      </label>
-      <div className="relative">
         <input
           type="number"
           value={value || ''}
           onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
           placeholder={placeholder}
-          className="input-field"
+          className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-2.5 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 outline-none pl-8"
         />
-        {suffix && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-            {suffix}
-          </span>
-        )}
       </div>
     </div>
   );
